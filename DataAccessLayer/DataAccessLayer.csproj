@@ -58,13 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Executors\SqliteProductItemExecutor.cs" />
+    <Compile Include="Executors\SqlProductItemExecutor.cs" />
     <Compile Include="Models\ProductItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Repositories\Interfaces\IProductItemRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IProductRepository.cs" />
-    <Compile Include="Repositories\Interfaces\ISqliteExecutor.cs" />
+    <Compile Include="Repositories\Interfaces\ISqlExecutor.cs" />
     <Compile Include="Repositories\SQLiteRepository.cs" />
   </ItemGroup>
   <ItemGroup>

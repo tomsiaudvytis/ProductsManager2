@@ -1,14 +1,13 @@
-﻿using System;
-using System.Data.SQLite;
-using System.IO;
-
-namespace DataAccessLayer
+﻿namespace DataAccessLayer
 {
+    using System;
+    using System.Data.SQLite;
+    using System.IO;
+
     public static class Helper
     {
         public static string DbConnection()
         {
-
             string sqliteFile = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\ProductsManagerDB.db";
 
             if (File.Exists(sqliteFile))

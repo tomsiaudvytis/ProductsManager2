@@ -7,12 +7,12 @@
     using System;
     using System.Text;
 
-    public class SQLiteRepository : IProductItemRepository, IProductRepository
+    public class SQLiteRepository : IProductItemRepository
     {
-        private readonly ISqliteExecutor<ProductItemModel> _productItemExecutor;
+        private readonly ISqlExecutor<ProductItemModel> _productItemExecutor;
         private readonly ILogger _logger;
 
-        public SQLiteRepository(ISqliteExecutor<ProductItemModel> productItemExecutor, ILogger logger)
+        public SQLiteRepository(ISqlExecutor<ProductItemModel> productItemExecutor, ILogger logger)
         {
             this._productItemExecutor = productItemExecutor;
             this._logger = logger;
@@ -47,11 +47,6 @@
                 _logger.Error(ex);
                 throw;
             }
-        }
-
-        public int ExistingItemsCount()
-        {
-            throw new NotImplementedException();
         }
     }
 }

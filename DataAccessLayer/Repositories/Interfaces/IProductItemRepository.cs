@@ -5,6 +5,5 @@
     public interface IProductItemRepository
     {
         void AddProductItem(ProductItemModel item);
-        int ExistingItemsCount();
     }
 }

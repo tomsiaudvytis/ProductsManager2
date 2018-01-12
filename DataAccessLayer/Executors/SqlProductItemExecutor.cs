@@ -1,12 +1,11 @@
 ﻿namespace DataAccessLayer.Executors
 {
-    using System.Collections.Generic;
     using System.Data.SQLite;
     using Dapper;
     using DataAccessLayer.Models;
     using DataAccessLayer.Repositories.Interfaces;
 
-    public class SqliteProductItemExecutor : ISqliteExecutor<ProductItemModel>
+    public class SqlProductItemExecutor : ISqlExecutor<ProductItemModel>
     {
         public void Add(string sqlCommand)
         {
@@ -22,21 +21,6 @@
             {
                 return connection.ExecuteScalar<int>(sqlCommand);
             }
-        }
-
-        public void Delete(string sqlCommand)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<ProductItemModel> Save(string sqlCommand)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public ProductItemModel Update(string sqlCommand)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

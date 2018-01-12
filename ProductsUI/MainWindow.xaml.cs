@@ -14,7 +14,7 @@ namespace ProductsUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ISqliteExecutor<ProductItemModel> _sqliteProductITemExecutor;
+        private readonly ISqlExecutor<ProductItemModel> _sqliteProductITemExecutor;
         private readonly SQLiteRepository _sqLiteRepository;
         private readonly ILogger _logger;
 
@@ -23,7 +23,7 @@ namespace ProductsUI
             InitializeComponent();
 
             this._logger = LogManager.GetCurrentClassLogger();
-            this._sqliteProductITemExecutor = new SqliteProductItemExecutor();
+            this._sqliteProductITemExecutor = new SqlProductItemExecutor();
             this._sqLiteRepository = new SQLiteRepository(_sqliteProductITemExecutor, _logger);
         }
     }

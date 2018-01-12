@@ -13,7 +13,7 @@ namespace Tests.DataAccessLayerTests
         [Test]
         public void AddProductItem_ShouldCallAddFromSqliteRepository()
         {
-            ISqliteExecutor<ProductItemModel> productItemExecutor = A.Fake<ISqliteExecutor<ProductItemModel>>();
+            ISqlExecutor<ProductItemModel> productItemExecutor = A.Fake<ISqlExecutor<ProductItemModel>>();
             ILogger logger = A.Fake<ILogger>();
             ProductItemModel item = A.Fake<ProductItemModel>();
         }
