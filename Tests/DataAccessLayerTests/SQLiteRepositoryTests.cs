@@ -1,5 +1,7 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.Executors;
 using DataAccessLayer.Models;
+using DataAccessLayer.Repositories;
 using DataAccessLayer.Repositories.Interfaces;
 using FakeItEasy;
 using NLog;
@@ -26,11 +28,22 @@ namespace Tests.DataAccessLayerTests
         }
 
         [Test]
-        public void AddProductItem_ShouldCallAddFromSqliteRepository()
+        public void AddProductItem_Adding_Dublicate_Returns_Exception()
         {
-            ISqlExecutor<ProductItemModel> productItemExecutor = A.Fake<ISqlExecutor<ProductItemModel>>();
+            ISqlExecutor<ProductItemModel> productItemExecutor = new SqlProductItemExecutor();
             ILogger logger = A.Fake<ILogger>();
-            ProductItemModel item = A.Fake<ProductItemModel>();
+            SQLiteRepository repo = new SQLiteRepository(productItemExecutor, logger);
+
+            ProductItemModel item = new ProductItemModel
+            {
+                Id = Guid.NewGuid(),
+                MeasurementUnit = "Kg",
+                ProductName = "bulves"
+            };
+
+            repo.AddProductItem(item);
+            repo.AddProductItem(item);
+
         }
     }
 }

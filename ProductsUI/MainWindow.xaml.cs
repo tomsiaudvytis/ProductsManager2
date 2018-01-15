@@ -25,6 +25,12 @@ namespace ProductsUI
             this._logger = LogManager.GetCurrentClassLogger();
             this._sqliteProductITemExecutor = new SqlProductItemExecutor();
             this._sqLiteRepository = new SQLiteRepository(_sqliteProductITemExecutor, _logger);
+
+
+            _sqLiteRepository.AddProductItem(new ProductItemModel()
+            {
+                Id = Guid.NewGuid()
+            });
         }
     }
 }

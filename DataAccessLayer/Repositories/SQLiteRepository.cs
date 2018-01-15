@@ -22,10 +22,10 @@
         {
             try
             {
-                string countQuery = $@"SELECT count(*) FROM ProductItem WHERE Product_Name='{item.ProductName}'";
+                string countQuery = $@"SELECT count(*) FROM ProductItem WHERE Product_Name='{item.ProductName}' COLLATE NOCASE";
                 int count = _productItemExecutor.GetCount(countQuery);
 
-                if (count > 0)
+                if (count > 1)
                 {
                     throw new RecordAlreadyExistsException("Product named " + item.ProductName + " already exists");
                 }
